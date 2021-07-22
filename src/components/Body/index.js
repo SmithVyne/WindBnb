@@ -5,6 +5,7 @@ import {AiFillStar} from 'react-icons/all';
 const capitalize = (word) => (word[0].toUpperCase() + word.slice(1)) 
 
 function Body({stays, location}) {
+    console.log(stays)
     return (
         <main>
             <div className="title-section">
@@ -13,7 +14,7 @@ function Body({stays, location}) {
             </div>
             <Row gutter={[32, 32]}>
             {stays.map(stay => (
-                <Col style={{cursor: "pointer"}} md={8} key={stay.beds}>
+                <Col style={{cursor: "pointer"}} md={8} key={JSON.stringify(stay)}>
                 <div className="stay-img" style={{backgroundImage: `url(${stay.photo})`}}></div>
                 <div className='stay-desc'>
                     {stay.superHost && <span className='superhost'>SUPER HOST</span>}
