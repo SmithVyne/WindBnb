@@ -12,7 +12,7 @@ export default function Nav({setLocation}: Props): ReactElement {
 
     return (
         <nav>
-            <a href='/'><img className='siteLogo' src={logo} /></a>
+            <a href='/'><img className='siteLogo' alt="logo" src={logo} /></a>
             <input onChange={handleLocation} />
         </nav>
     )
