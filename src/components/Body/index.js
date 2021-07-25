@@ -5,7 +5,6 @@ import {AiFillStar} from 'react-icons/all';
 const capitalize = (word) => (word[0].toUpperCase() + word.slice(1)) 
 
 function Body({stays, location}) {
-    console.log(stays)
     return (
         <main>
             <div className="title-section">

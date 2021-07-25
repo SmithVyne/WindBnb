@@ -1,19 +1,28 @@
-import React, { ReactElement } from 'react';
-import {debounce} from 'lodash';
+import React, { ReactElement, useLayoutEffect, useRef } from 'react';
 import logo from '../logo.svg';
+import {AiOutlineSearch} from 'react-icons/all';
 
 interface Props {
-    setLocation: React.Dispatch<React.SetStateAction<string[]>>;
+    setTyping: React.Dispatch<React.SetStateAction<boolean>>;
+    location: string;
+    handleLocation: ({ target }: any) => void;
 }
 
-const splitLocation = (location: string) => location.toLowerCase().split(',').map(str => str.trim());
-export default function Nav({setLocation}: Props): ReactElement {
-    const handleLocation = debounce(({target}) => {setLocation(splitLocation(target.value))}, 500);
+export default function Nav({setTyping, location, handleLocation}: Props): ReactElement {
+    const locationRef = useRef<HTMLInputElement>(null);
+
+    useLayoutEffect(() => {
+        locationRef.current && locationRef.current.focus()
+    }, [])
 
     return (
         <nav>
             <a href='/'><img className='siteLogo' alt="logo" src={logo} /></a>
-            <input className="" onChange={handleLocation} />
+            <div className="filter" onMouseOver={() => setTyping(true)}>
+                <input value={location} ref={locationRef} className="location" onChange={handleLocation} placeholder="Add location" />
+                <input onClick={() => setTyping(true)} className="guests" placeholder="Add guests" />
+                <span className="search-btn"><AiOutlineSearch size={22} color="#EB5757" /></span>
+            </div>
         </nav>
     )
 }

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
@@ -8,6 +10,10 @@
     --light-grey: #828282;
     --dark-grey: #333333;
     --black-grey: #4F4F4F;
+}
+
+body, html {
+    height: fit-content;
 }
 
 body, #root {
@@ -26,11 +32,11 @@ nav {
     padding: 50px 5%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .siteLogo {
-    width: 120px;
+    width: 130px;
 }
 
 .stay-img {
@@ -94,4 +100,147 @@ nav {
     white-space: nowrap;
     font-weight: bold;
     font-size: 12px;
+}
+
+.filter {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    border-radius: 16px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter > * {
+    border: 1px solid #F2F2F2;
+    display: flex;
+    align-items: center;
+}
+
+.filter > input {
+    height: 60px;
+    outline: none;
+    padding: 19px 16px;
+    color: #333333;
+    text-align: center;
+    line-height: 18px;
+    font-size: 15px;
+}
+
+.filter > input::placeholder, .filter-lg input::placeholder {
+    color: #BDBDBD;
+}
+
+input.location {
+    width: 138px;
+    border-radius: 16px 0 0 16px;
+}
+
+input.guests {
+    width: 106px;
+}
+
+.search-btn {
+    padding: 18px;
+    border-radius: 0 16px 16px 0;
+    cursor: pointer;
+}
+
+.modal, .modalWrapper {
+    width: 100%;
+}
+
+.modalWrapper {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(79, 79, 79, 0.4);
+    z-index: 10;
+}
+
+.modal {
+    background: #FFFFFF;
+    height: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-wrapper {
+    width: 1248px;
+    height: 260px;
+}
+
+.filter-lg {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+.filter-lg > span.borders {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333333;
+    gap: 3px;
+}
+
+.filter-lg label {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 9px;
+    line-height: 11px;
+    text-transform: uppercase;
+}
+
+.filter-lg input {
+    border-radius: 16px;
+    border: none;
+    outline: none;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    margin-left: -3px;
+}
+
+.lg {
+    padding: 15px 27px;
+    background: #EB5757;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+    cursor: pointer;
+}
+
+span.search-btn-lg {
+    padding: 4px 135px;
+}
+
+.cityOptions {
+    padding: 40px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4F4F4F;
+    gap: 7px;
 }
