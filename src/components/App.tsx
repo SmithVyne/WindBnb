@@ -6,6 +6,7 @@ import Nav from './Nav';
 import Body from './Body';
 import Modal from './Modal';
 import { splitLocation } from './utils';
+import { useMemo } from 'react';
 
 const filterStays = (n_stays: Stays[], location:string[]) => {
   if (location[0]) {
@@ -32,11 +33,21 @@ export interface Stays {
   "photo": string;
 }
 
+export type Guests = {
+  "adults": number;
+  "children": number;
+  [key: string]: number;
+}
+
 function App() {
   const [stays, setStays] = useState< [] | Stays[] >([]);
   const [typing, setTyping] = useState<boolean>(false);
   const [location, setLocation] = useState<string>("");
   const [deb_location, setDebLocation] = useState<string[]>([""]);
+  const [guests, setGuests] = useState<Guests>({adults: 0, children: 0});
+
+  const totalGuests = useMemo(() => Object.values(guests).reduce((sum, num) => sum+num, 0), [guests])
+
   const handleLocation = ({target}:any) => {
     if(target.textContent) {
       setLocation(target.textContent)
@@ -44,6 +55,15 @@ function App() {
       setLocation(target.value)
     }
   };
+
+
+  const handleGuests = (type:string, operation: string) => {
+    if(operation === "+") {
+      setGuests((guests) => ({...guests, [type]: guests[type] + 1}))
+    } else if(operation === "-") {
+      setGuests((guests) => ({...guests, [type]: guests[type] > 0 ? guests[type] - 1 : 0}))
+    }
+  }
 
   const deb_funtion = useCallback(debounce(location => setDebLocation(splitLocation(location)), 500), []);
   useEffect(() => deb_funtion(location), [location, deb_funtion]);
@@ -59,8 +79,9 @@ function App() {
   const props = {stays, location: deb_location}
   return (
     <>
-      <Modal stays={stays} typing={typing} setTyping={setTyping} location={location} handleLocation={handleLocation} />
-      <Nav setTyping={setTyping} location={location} handleLocation={handleLocation} />
+      <Modal stays={stays} typing={typing} setTyping={setTyping} location={location} handleLocation={handleLocation} 
+        totalGuests={totalGuests}  guests={guests} handleGuests={handleGuests} />
+      <Nav setTyping={setTyping} location={location} handleLocation={handleLocation} totalGuests={totalGuests} />
       <Body {...props} />
     </>
   );

@@ -224,12 +224,10 @@ span.search-btn-lg {
     padding: 4px 135px;
 }
 
-.cityOptions {
-    padding: 40px 26px;
+.cityOptions, .guestOptions  {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
 }
 
 .options {
@@ -243,4 +241,36 @@ span.search-btn-lg {
     line-height: 18px;
     color: #4F4F4F;
     gap: 7px;
+}
+
+.suggestions {
+    padding: 40px 26px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr;
+}
+
+.guestOptions > div {
+    display: flex;
+    flex-direction: column;
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #333333;
+}
+
+.guestSlider {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #333333;
+    margin-top: 10px;
+}
+
+.guestOptions label {
+    opacity: 0.3;
 }
