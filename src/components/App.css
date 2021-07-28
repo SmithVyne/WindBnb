@@ -218,6 +218,7 @@ input.guests {
     align-items: center;
     max-width: fit-content;
     cursor: pointer;
+    gap: 10px;
 }
 
 span.search-btn-lg {
@@ -265,7 +266,7 @@ span.search-btn-lg {
 
 .guestSlider {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
     color: #333333;
     margin-top: 10px;
@@ -273,4 +274,69 @@ span.search-btn-lg {
 
 .guestOptions label {
     opacity: 0.3;
+}
+
+@media screen and (max-width: 450px) {
+    nav {
+        justify-content: center;
+        padding: 21px 40px;
+        max-width: 100vw;
+    }
+    .siteLogo {
+        width: 110px;
+        margin: 19px 13px;
+    }
+    main {
+        padding-top: 15px;
+    }
+
+    .modal {
+        height: 80vh;
+        flex-direction: column;
+        padding: 12px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .modal > .noti {
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        color: #333333;
+    }
+
+    .filter-wrapper {
+        width: 100%;
+        padding-top: 16px;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-lg {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1px 1fr;
+        height: 113px;
+    }
+
+    .filter-lg > span.borders {
+        border-right: none;
+    }
+
+    .mobile-border {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .lg {
+        margin-bottom: 20px;
+        margin-top: auto;
+    }
+
+    .suggestions {
+        height: 300px;
+        grid-template-columns: 1fr;
+    }
 }

@@ -17,7 +17,6 @@ const filterStays = (n_stays: Stays[], location:string[]) => {
       return countryName ? (city === cityName && country === countryName) : city === cityName;
     })
   }
-
   return n_stays;
 }
 
@@ -45,8 +44,16 @@ function App() {
   const [location, setLocation] = useState<string>("");
   const [deb_location, setDebLocation] = useState<string[]>([""]);
   const [guests, setGuests] = useState<Guests>({adults: 0, children: 0});
+  const [isMobile, setisMobile] = useState(true);
+  
+  const handleScreen = () =>  setisMobile(window.innerWidth < 400);
+  useEffect(() => {
+    handleScreen();
+    window.addEventListener('resize', handleScreen)
+    return () => window.removeEventListener('resize', handleScreen);
+  }, [])
 
-  const totalGuests = useMemo(() => Object.values(guests).reduce((sum, num) => sum+num, 0), [guests])
+  const totalGuests = useMemo(() => Object.values(guests).reduce((sum, num) => sum+num, 0), [guests]);
 
   const handleLocation = ({target}:any) => {
     if(target.textContent) {
@@ -55,7 +62,6 @@ function App() {
       setLocation(target.value)
     }
   };
-
 
   const handleGuests = (type:string, operation: string) => {
     if(operation === "+") {
@@ -79,9 +85,9 @@ function App() {
   const props = {stays, location: deb_location}
   return (
     <>
-      <Modal stays={stays} typing={typing} setTyping={setTyping} location={location} handleLocation={handleLocation} 
+      <Modal isMobile={isMobile} stays={stays} typing={typing} setTyping={setTyping} location={location} handleLocation={handleLocation} 
         totalGuests={totalGuests}  guests={guests} handleGuests={handleGuests} />
-      <Nav setTyping={setTyping} location={location} handleLocation={handleLocation} totalGuests={totalGuests} />
+      <Nav isMobile={isMobile} setTyping={setTyping} location={location} handleLocation={handleLocation} totalGuests={totalGuests} />
       <Body {...props} />
     </>
   );

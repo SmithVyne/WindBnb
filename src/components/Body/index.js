@@ -13,17 +13,17 @@ function Body({stays, location}) {
             </div>
             <Row gutter={[32, 32]}>
             {stays.map(stay => (
-                <Col style={{cursor: "pointer"}} md={8} key={JSON.stringify(stay)}>
-                <div className="stay-img" style={{backgroundImage: `url(${stay.photo})`}}></div>
-                <div className='stay-desc'>
-                    {stay.superHost && <span className='superhost'>SUPER HOST</span>}
-                    <span className='stay-type'>{stay.type}
-                    <span><AiFillStar size={15.6} color="#EB5757" /> {stay.rating}</span>
-                    </span>
-                </div>
-                <div className='stay-title'>
-                    {stay.title}
-                </div>
+                <Col style={{cursor: "pointer"}} xs={24} sm={12} md={8} key={JSON.stringify(stay)}>
+                    <div className="stay-img" style={{backgroundImage: `url(${stay.photo})`}}></div>
+                    <div className='stay-desc'>
+                        {stay.superHost && <span className='superhost'>SUPER HOST</span>}
+                        <span className='stay-type'>{stay.type}
+                        <span><AiFillStar size={15.6} color="#EB5757" /> {stay.rating}</span>
+                        </span>
+                    </div>
+                    <div className='stay-title'>
+                        {stay.title}
+                    </div>
                 </Col>
             ))}
             </Row>
