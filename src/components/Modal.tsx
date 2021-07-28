@@ -64,7 +64,7 @@ export default function Modal({stays, typing, setTyping, location, handleLocatio
     useLayoutEffect(() => {
         typing && locationRef.current && locationRef.current.focus()
     }, [typing])
-
+    
     return (
         <AnimatePresence>
         {typing && 
