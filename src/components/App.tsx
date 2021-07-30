@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import {debounce} from 'lodash';
 import 'antd/dist/antd.css';
 import './App.css';
@@ -6,7 +6,6 @@ import Nav from './Nav';
 import Body from './Body';
 import Modal from './Modal';
 import { splitLocation } from './utils';
-import { useMemo } from 'react';
 
 const filterStays = (n_stays: Stays[], location:string[]) => {
   if (location[0]) {
@@ -71,7 +70,7 @@ function App() {
     }
   }
 
-  const deb_funtion = useCallback(debounce(location => setDebLocation(splitLocation(location)), 500), []);
+  const deb_funtion = useMemo(() => debounce(location => setDebLocation(splitLocation(location)), 500), []);
   useEffect(() => deb_funtion(location), [location, deb_funtion]);
   
   useEffect(() => {
