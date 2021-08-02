@@ -6,7 +6,6 @@
 
 <div align="center">
   <h3>
-    <span> | </span>
     <a href="https://windbnb-sm.netlify.app/">
       Solution
     </a>
@@ -25,8 +24,6 @@
 - [How to use](#how-to-use)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
-
-<!-- OVERVIEW -->
 
 ## Overview
 
