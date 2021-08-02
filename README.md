@@ -6,11 +6,8 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
-      Demo
-    </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://windbnb-sm.netlify.app/">
       Solution
     </a>
     <span> | </span>
@@ -19,8 +16,6 @@
     </a>
   </h3>
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
@@ -67,9 +62,6 @@ $ npm start
 ```
 
 ## Acknowledgements
-
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
-
 - [Node.js](https://nodejs.org/)
 
 ## Contact
